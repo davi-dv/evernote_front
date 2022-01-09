@@ -1,10 +1,10 @@
 import React, { Fragment } from "react"
 import "./App.scss"
 import { Notification, Section } from "rbx"
-import Header from "./components/header/index.js"
+import HomeScreen from "./screens/home/index.js"
 const App = () => (
     <Fragment>
-        <Header />
+        <HomeScreen />
     </Fragment>
 )
 
