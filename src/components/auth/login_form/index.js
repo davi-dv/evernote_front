@@ -10,6 +10,8 @@ import {
     Label
 } from "rbx"
 import { Navigate } from "react-router-dom"
+import UsersService from "../../../services/users"
+
 function LoginForm() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -17,13 +19,26 @@ function LoginForm() {
     const [RedirectToNotes, setRedirectToNotes] = useState(false)
     const [error, setError] = useState(false)
 
+    const handleSubmit = async (evento) => {
+        evento.preventDefault()
+        try {
+            const user = await UsersService.login({
+                email: email,
+                password: password
+            })
+            setRedirectToNotes(true)
+        } catch (error) {
+            setError(true)
+        }
+    }
+
     if (RedirectToRegister) return <Navigate to="/register" />
     else if (RedirectToNotes) return <Navigate to="/notes" />
 
     return (
         <Fragment>
             <Column.Group centered>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <Column size={12}>
                         <Field>
                             <Label size="small">Email:</Label>
@@ -32,7 +47,6 @@ function LoginForm() {
                                     type="email"
                                     required
                                     name="email"
-                                    value="email"
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                             </Control>
@@ -44,7 +58,6 @@ function LoginForm() {
                                     type="password"
                                     required
                                     name="password"
-                                    value="password"
                                     onChange={(e) =>
                                         setPassword(e.target.value)
                                     }

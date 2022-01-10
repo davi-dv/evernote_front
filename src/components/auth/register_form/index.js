@@ -11,6 +11,7 @@ import {
 } from "rbx"
 import { Navigate } from "react-router-dom"
 import UsersService from "../../../services/users"
+
 function RegisterForm() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
