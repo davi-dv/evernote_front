@@ -15,4 +15,8 @@ nav.navbar {
         }
       }
 }
-
+.navbar-logged{
+    .navbar-menu{
+      background-color: $custom-purple;  
+    }
+}
