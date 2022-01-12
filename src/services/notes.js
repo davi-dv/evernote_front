@@ -26,6 +26,13 @@ const NotesService = {
             {
                 headers: { "x-access-token": localStorage.getItem("tokenJWT") }
             }
-        )
+        ),
+        search: (query) =>
+        Api.get(
+            `/notes/search?query=${query}`,
+            {
+                headers: { "x-access-token": localStorage.getItem("tokenJWT") }
+            }
+        ),
 }
 export default NotesService
