@@ -9,7 +9,7 @@ import { faList } from "@fortawesome/free-solid-svg-icons"
 
 function HeaderLogged(props) {
     const [redirectToHome, setRedirectToHome] = useState(false)
-
+    const [user, setName] = useState(localStorage.getItem("user"))
     const logOut = async () => {
         await UsersService.logout()
         setRedirectToHome(true)
@@ -69,7 +69,7 @@ function HeaderLogged(props) {
                                     color="white"
                                     outlined
                                 >
-                                    <span>Davi ▼</span>
+                                    <span>{JSON.parse(user)["name"]} ▼</span>
                                 </Button>
                             </Dropdown.Trigger>
                             <Dropdown.Menu>
