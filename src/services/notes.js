@@ -12,6 +12,13 @@ const NotesService = {
             {
                 headers: { "x-access-token": localStorage.getItem("tokenJWT") }
             }
+        ),
+        delete: (id) =>
+        Api.delete(
+            `/notes/${id}`,
+            {
+                headers: { "x-access-token": localStorage.getItem("tokenJWT") }
+            }
         )
 }
 export default NotesService
