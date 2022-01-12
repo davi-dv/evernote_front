@@ -19,6 +19,13 @@ const NotesService = {
             {
                 headers: { "x-access-token": localStorage.getItem("tokenJWT") }
             }
+        ),
+        update: (id,params) =>
+        Api.put(
+            `/notes/${id}`,params,
+            {
+                headers: { "x-access-token": localStorage.getItem("tokenJWT") }
+            }
         )
 }
 export default NotesService
