@@ -1,7 +1,8 @@
-import React, { Fragment } from 'react';
-import { Column, Section, Title, Container, Card, Button } from "rbx";
-import "../../../styles/users.scss";
-import HeaderLogged from "../../../components/header_logged";
+import React, { Fragment } from "react"
+import { Column, Section, Title, Container, Card, Button } from "rbx"
+import "../../../styles/users.scss"
+import HeaderLogged from "../../../components/header_logged"
+import UsersEditForm from "../../../components/users/user_edit_form"
 
 const UserEditScreen = () => (
     <Fragment>
@@ -14,7 +15,9 @@ const UserEditScreen = () => (
                             Informações Pessoais
                         </Title>
                         <Card>
-                            <Card.Content>Users Edit Form...</Card.Content>
+                            <Card.Content>
+                                <UsersEditForm />
+                            </Card.Content>
                         </Card>
                     </Column>
                 </Column.Group>
