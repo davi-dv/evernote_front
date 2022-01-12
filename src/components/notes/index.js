@@ -4,7 +4,7 @@ import { Column, Button } from "rbx"
 import { push as Menu } from "react-burger-menu"
 import ListNotes from "../notes/list"
 import NotesService from "../../services/notes"
-
+import Editor from "../notes/editor"
 function Notes(props) {
     const [notes, setNotes] = useState([])
     const [current_note, setCurrentNote] = useState({
@@ -23,7 +23,7 @@ function Notes(props) {
         }
     }
     const createNote = async () => {
-        await NotesService.create();
+        await NotesService.create()
         fetchNotes()
     }
     const deleteNote = async (note) => {
@@ -62,7 +62,7 @@ function Notes(props) {
                 </Menu>
 
                 <Column size={12} className="notes-editor" id="notes-editor">
-                    Editor...
+                    <Editor note={current_note} />
                 </Column>
             </div>
         </Fragment>
